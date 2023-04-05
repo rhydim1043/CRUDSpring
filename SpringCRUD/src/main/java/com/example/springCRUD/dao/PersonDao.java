@@ -1,2 +1,15 @@
-package com.example.springCRUD.dao;public interface PersonDao {
+package com.example.springCRUD.dao;
+
+import com.example.springCRUD.model.Person;
+
+import java.util.UUID;
+
+public interface PersonDao {
+
+    int insertPerson(UUID id, Person person);
+    default int insertPerson(Person person)
+    {
+        UUID id = UUID.randomUUID();
+        return insertPerson(id, person);
+    }
 }
