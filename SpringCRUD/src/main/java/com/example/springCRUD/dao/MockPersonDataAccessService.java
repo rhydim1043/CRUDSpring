@@ -30,7 +30,7 @@ public class MockPersonDataAccessService implements PersonDao{
     @Override
     public int deletePersonbyId(UUID id){
         Optional<Person> findPerson = selectPersonbyId(id);
-//        if(findPerson.isEmpty()) return 0;
+        if(findPerson.isEmpty()) return 0;
         DB.remove(findPerson.get());
         return 1;
     }
